@@ -2,3 +2,51 @@
     font-size: large;
     background: transparent !important;
 }
+.profile .container {
+    width: 1240px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.profile .col-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.profile .col-2 p:first-of-type {
+    margin: 2rem 0;
+}
+
+.profile .col-2 p:nth-child(4) {
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+
+
+@media screen and (max-width:940px) {
+    .profile .container {
+        grid-template-columns: 1fr;
+    }
+
+    .profile .container {
+        width: 100%;
+    }
+
+    .profile .container img {
+        padding: 0rem;
+        width: 90vw;
+    }
+
+    .profile .container .col-2 {
+        padding: 0;
+    }
+
+  
+}

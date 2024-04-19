@@ -7,7 +7,6 @@ const Repo = () => {
     return (
         <div className='repos'>
             <div className='content'>
-          
           <ChakraProvider>
           <Profile />
         </ChakraProvider>

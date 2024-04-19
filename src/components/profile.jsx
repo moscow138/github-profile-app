@@ -1,5 +1,26 @@
 import React,{useState} from "react";
-import { Card,CardBody, CardFooter,Image,Stack,Button,Text,Box,Input,StackDivider } from '@chakra-ui/react'
+import { Card,CardBody,
+   CardFooter,
+   Image,
+   Stack,
+   Button,
+   Text,
+   Box,
+   Input,
+   StackDivider,
+   CardHeader,
+   Heading,
+   Table,
+   Thead,
+   Tbody,
+   Tfoot,
+   Tr,
+   Th,
+   Td,
+   TableCaption,
+   TableContainer
+
+   } from '@chakra-ui/react'
 import './Profile.css'
 
 
@@ -34,17 +55,20 @@ if(profiletoJson){
 
   return (
   
-        <div>
-         <Stack direction='row' spacing={4} pb='2'>
+        <div className='profile'>
+           <Stack direction='row' spacing={4} pb='2'>
         <Input type="text" placeholder='Search other username' size='sm' value={username} onChange={onChangeHandler} htmlSize={18} width='auto' />
         <Button type='submit' onClick={submitHandler} variant='solid' colorScheme='blackAlpha' size='sm'>Get default user</Button>
         </Stack>
+           <div className="container">
+      
         
   <Card
   className="card"
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
+  
 >
   <Image
     objectFit='cover'
@@ -53,7 +77,7 @@ if(profiletoJson){
     alt='github avatar'
   />
 
-  <Stack >
+  <Stack Stack divider={<StackDivider />} spacing='-1' >
     <CardBody>
     
     
@@ -63,20 +87,26 @@ if(profiletoJson){
   </Stack>
   
   <Stack divider={<StackDivider />} spacing='4'>
+        <Box>
+
+        </Box>
+
       <Box>
-       
+      <Text pt='3' fontSize='sm' color='white'>
+        Name: {data.name}
+        </Text>
   
       </Box>
       <Box pt='0'>
     
-        <Text pt='0' fontSize='sm'>
-        Bio: {data.blog}
+        <Text pt='0' fontSize='sm' color='white'>
+        Website: {data.blog}
         </Text>
       </Box>
       <Box>
        
-        <Text pt='0' fontSize='sm'>
-        Email: {data.bio}
+        <Text pt='0' fontSize='sm' color='white'>
+        Bio: {data.bio}
         </Text>
       </Box>
        <Box>
@@ -85,9 +115,7 @@ if(profiletoJson){
       </Box>
       
     </Stack>
-    
 
-    
     </CardBody>
 
     <CardFooter>
@@ -95,9 +123,52 @@ if(profiletoJson){
     </CardFooter>
   </Stack>
 </Card>
+{/* colum 2 to list repos */}
+<div className='col-2'>
+<Stack direction='row' spacing={4} pb='2'>
+        <Input type="text" placeholder='Search repository' size='sm' htmlSize={18} width='auto' />
+        <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Search</Button>
+        </Stack>          
+  <Card
+  maxW='md'
+  className="card"
+  >
+  <CardHeader>
+    <Heading color='white' size='md'>List all user repositories</Heading>
+  </CardHeader>
+
+  <CardBody>
+    <Stack divider={<StackDivider />} spacing='-10'>
+      <Box>
+        
+        <Text pt='2' fontSize='sm'>
+          View a summary of all your clients over the last month.
+        </Text>
+      </Box>
+      <Box>
+      
+        <Text pt='2' fontSize='sm'>
+          Check out the overview of your clients.
+        </Text>
+      </Box>
+      <Box>
        
+        <Text pt='2' fontSize='sm'>
+          See a detailed analysis of all your business clients.
+        </Text>
+      </Box>
+    </Stack>
+  </CardBody>
+</Card>
+                    
+                   
+                 
+                </div>
 
       </div>
+      </div>
+
+      
         
   );
 };
