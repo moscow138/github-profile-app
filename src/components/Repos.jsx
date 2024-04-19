@@ -1,13 +1,16 @@
 import React from 'react'
 import './Repos.css'
 import Profile from './profile'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const Repo = () => {
     return (
         <div className='repos'>
             <div className='content'>
-          <Profile />
           
+          <ChakraProvider>
+          <Profile />
+        </ChakraProvider>
             </div>
         </div>
     )
