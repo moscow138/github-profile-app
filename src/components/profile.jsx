@@ -70,14 +70,19 @@ if(profiletoJson){
   variant='outline'
   
 >
-  <Image
+  
+  { !data.avatar_url ? ' ' : (
+    <Image
     objectFit='cover'
-    maxW={{ base: '100%', sm: '200px' }}
+    maxW={{ base: '100%', sm: '250px' }}
     src={data.avatar_url}
     alt='github avatar'
-  />
+    />
+  )}
+    
 
-  <Stack Stack divider={<StackDivider />} spacing='-1' >
+
+  <Stack Stack divider={<StackDivider />} spacing='1' >
     <CardBody>
     
     
@@ -118,9 +123,6 @@ if(profiletoJson){
 
     </CardBody>
 
-    <CardFooter>
-      
-    </CardFooter>
   </Stack>
 </Card>
 {/* colum 2 to list repos */}
@@ -130,40 +132,33 @@ if(profiletoJson){
         <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Search</Button>
         </Stack>          
   <Card
-  maxW='md'
+  maxW='sm'
   className="card"
   >
   <CardHeader>
-    <Heading color='white' size='md'>List all user repositories</Heading>
+    <Heading color='white' size='sm' textDecoration='underline'>Repositories</Heading>
   </CardHeader>
 
   <CardBody>
-    <Stack divider={<StackDivider />} spacing='-10'>
-      <Box>
-        
-        <Text pt='2' fontSize='sm'>
-          View a summary of all your clients over the last month.
+  
+    {repositories.map(repo => (
+      <Stack divider={<StackDivider />} spacing='' key={repo.name}>
+        <Box>
+        <Text pt='2' fontSize='sm' color='white'>
+           <a href={repo.html_url} target="_blank">{repo.name}</a>
         </Text>
       </Box>
-      <Box>
-      
-        <Text pt='2' fontSize='sm'>
-          Check out the overview of your clients.
-        </Text>
-      </Box>
-      <Box>
-       
-        <Text pt='2' fontSize='sm'>
-          See a detailed analysis of all your business clients.
-        </Text>
-      </Box>
-    </Stack>
+      </Stack>
+    ))}
+     
+  
+   
   </CardBody>
 </Card>
                     
                    
                  
-                </div>
+  </div>
 
       </div>
       </div>
