@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { Card,CardBody,
    Image,
    Stack,
@@ -31,27 +31,34 @@ const Profile = () => {
 //
 const profile = await fetch(`https://api.github.com/users/${ username ? username : 'moscow138'}`);
 const profiletoJson = await profile.json();
-console.log(profiletoJson)
+// console.log(profiletoJson)
 
 const repositories = await fetch(profiletoJson.repos_url);
 const repoJson    = await repositories.json();
-console.log(repoJson);
+// console.log(repoJson);
 if(profiletoJson){
   setData(profiletoJson);
   setRepositories(repoJson)
 }
     }
 
-   
+    const [currentPage, setCurrentPage] = useState(1);
+    const recordsPerPage = 5;
+    const lastIndex   = currentPage * recordsPerPage;
+    const firstIndex = lastIndex - recordsPerPage;
+    const records = repositories.slice(firstIndex, lastIndex);
+    const npages = Math.ceil(repositories.length / recordsPerPage);
+    const numbers = [...Array(npages + 1).keys()].slice(1);
+    // console.log(numbers);
 
   return (
   
         <div className='profile'>
-           <Stack direction='row' spacing={4} pb='2'>
+        <Stack direction='row' spacing={4} pb='2'>
         <Input type="text" placeholder='Search other username' size='sm' value={username} onChange={onChangeHandler} htmlSize={18} width='auto' />
         <Button type='submit' onClick={submitHandler} variant='solid' colorScheme='blackAlpha' size='sm'>Get default user</Button>
         </Stack>
-           <div className="container">
+        <div className="container">
       
         
   <Card
@@ -132,34 +139,64 @@ if(profiletoJson){
 
   <CardBody>
   
-  
-    {repositories.map(repo => (
-      <Stack divider={<StackDivider />} spacing='' key={repo.id}>
+    {records.map((repo,i) => (
+      <Stack divider={<StackDivider />} spacing='' key={i}>
         <Box>
         <Text pt='2' fontSize='sm' color='white'>
            <a href={repo.html_url} target="_blank">{repo.name}</a>
         </Text>
       </Box>
-      </Stack>
+      </Stack>      
       
     ))}
-        
-  
+    
+    <div className="center">
    <div className="pagination">
-   <a href="#">❮</a>
-   <a href="#">❯</a>
-   </div>
+   <a href="#" onClick={prepage}>&laquo;</a>
+   
+   
+    {numbers.map((n, i) => (
+     
+      <span className={`link ${currentPage === n ? 'active' : '' }`} key={i}>
+      <a href="#" onClick={()=> changeCPage(n)} >{n}</a>      
+      </span>
+   
+    ))}
   
+   <a href="#" onClick={nextPage}>&raquo;</a>
+
+   </div>
+   </div>
   </CardBody>
+
+
 </Card>
                                
        </div>
       </div>
-      </div>
-
-      
-        
+      </div>    
   );
+
+  function prepage(){
+    if(currentPage !== 1){
+      setCurrentPage(currentPage - 1)
+    }
+
+  }
+
+  function changeCPage(id){
+    setCurrentPage(id)
+
+  }
+  function nextPage(){
+    if(currentPage != npages){
+      setCurrentPage(currentPage + 1)
+    }
+
+  }
+
 };
+
+
 
 export default Profile;
