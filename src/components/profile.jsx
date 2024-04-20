@@ -1,6 +1,5 @@
 import React,{useState} from "react";
 import { Card,CardBody,
-   CardFooter,
    Image,
    Stack,
    Button,
@@ -10,15 +9,7 @@ import { Card,CardBody,
    StackDivider,
    CardHeader,
    Heading,
-   Table,
-   Thead,
-   Tbody,
-   Tfoot,
-   Tr,
-   Th,
-   Td,
-   TableCaption,
-   TableContainer
+  
 
    } from '@chakra-ui/react'
 import './Profile.css'
@@ -141,25 +132,28 @@ if(profiletoJson){
 
   <CardBody>
   
+  
     {repositories.map(repo => (
-      <Stack divider={<StackDivider />} spacing='' key={repo.name}>
+      <Stack divider={<StackDivider />} spacing='' key={repo.id}>
         <Box>
         <Text pt='2' fontSize='sm' color='white'>
            <a href={repo.html_url} target="_blank">{repo.name}</a>
         </Text>
       </Box>
       </Stack>
+      
     ))}
-     
+        
   
-   
+   <div className="pagination">
+   <a href="#">❮</a>
+   <a href="#">❯</a>
+   </div>
+  
   </CardBody>
 </Card>
-                    
-                   
-                 
-  </div>
-
+                               
+       </div>
       </div>
       </div>
 
