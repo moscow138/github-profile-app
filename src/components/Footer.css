@@ -11,33 +11,26 @@
     text-align: center;
 }
 
-.footer ul {
-    display: flex;
-    justify-content: center;
-}
-
-.footer li {
-    padding: 1rem;
-}
-
-.footer li a {
-    color: #fff;
-}
-
-.footer li a:hover {
-    padding-bottom: 12px;
-    border-bottom: 3px solid var(--secondary-color);
-}
-
 .bottom {
     text-align: center;
     padding-top: 3rem;
 }
 
-.line {
-    margin-bottom: 1rem;
+.bottom .line {
+    margin-top: 1rem;
 }
-
+.bottom button{
+    background: red;
+    margin-left: 10px;
+    padding: 4px;
+    border-radius: 2px;
+    font-size: small;
+}
+.bottom p{
+    font-weight: bold;
+    font-size: small;
+    padding-bottom: 15px;
+}
 
 
 

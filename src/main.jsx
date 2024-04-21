@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter,RouterProvider,Route } from 'react-router-dom'
 import Viewrepo from './pages/Viewrepo'
+import Error from './pages/Error.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,11 @@ const router = createBrowserRouter([
   {
     path:"repo/:repoId",
     element: <Viewrepo />
+
+  },
+  {
+    path:"*",
+    element: <Error />
 
   }
 ])

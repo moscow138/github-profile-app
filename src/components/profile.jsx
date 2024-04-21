@@ -10,6 +10,7 @@ import { Card,CardBody,
    StackDivider,
    CardHeader,
    Heading,
+   CardFooter,
   
 
    } from '@chakra-ui/react'
@@ -129,12 +130,15 @@ if(profiletoJson){
     </CardBody>
 
   </Stack>
+  <CardFooter>
+    
+  </CardFooter>
 </Card>
 {/* colum 2 to list repos */}
 <div className='col-2'>
 <Stack direction='row' spacing={4} pb='2'>
         <Input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search repository' size='sm' htmlSize={18} width='auto' />
-        <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Create a Repo</Button>
+        <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Search</Button>
         </Stack>          
   <Card
   maxW='sm'

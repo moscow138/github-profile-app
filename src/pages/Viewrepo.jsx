@@ -11,12 +11,16 @@ const Viewrepo = () => {
     const {repoId} = useParams();
    
     return(
-        <div className="viewrepo">
-            <Navbar></Navbar>
+       
+        <div>
+         <Navbar></Navbar>
+        <section className="viewrepo">
             <h2> i am id {repoId}</h2>
             <Link to='/'>Back to all repository</Link>
+            </section>
             <Footer></Footer>
         </div>
+       
     )
 }
 

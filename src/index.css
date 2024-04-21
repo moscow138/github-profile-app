@@ -16,8 +16,8 @@ html {
 }
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar{
-  width: .8rem;
-  border-radius: .5rem;
+  width: .6rem;
+  border-radius: .3rem;
   background-color: var(--overlay);
 }
 ::-webkit-scrollbar-thumb{
