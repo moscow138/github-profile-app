@@ -41,7 +41,7 @@ if(profiletoJson){
   setRepositories(repoJson)
 }
     }
-
+// set pagination state
     const [currentPage, setCurrentPage] = useState(1);
     const recordsPerPage = 5;
     const lastIndex   = currentPage * recordsPerPage;
@@ -50,6 +50,9 @@ if(profiletoJson){
     const npages = Math.ceil(repositories.length / recordsPerPage);
     const numbers = [...Array(npages + 1).keys()].slice(1);
     // console.log(numbers);
+    //set search state.
+    const [search, setSearch] = useState('');
+    console.log(search);
 
   return (
   
@@ -126,8 +129,8 @@ if(profiletoJson){
 {/* colum 2 to list repos */}
 <div className='col-2'>
 <Stack direction='row' spacing={4} pb='2'>
-        <Input type="text" placeholder='Search repository' size='sm' htmlSize={18} width='auto' />
-        <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Search</Button>
+        <Input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search repository' size='sm' htmlSize={18} width='auto' />
+        <Button type='submit' variant='solid' colorScheme='blackAlpha' size='sm'>Create a Repo</Button>
         </Stack>          
   <Card
   maxW='sm'
@@ -139,7 +142,9 @@ if(profiletoJson){
 
   <CardBody>
   
-    {records.map((repo,i) => (
+    {records.filter((item) => {
+      return search.toLowerCase() === '' ? item : item.name.toLowerCase().includes(search);
+    }).map((repo,i) => (
       <Stack divider={<StackDivider />} spacing='' key={i}>
         <Box>
         <Text pt='2' fontSize='sm' color='white'>
