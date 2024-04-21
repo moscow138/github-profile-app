@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 import { Card,CardBody,
    Image,
    Stack,
@@ -15,7 +16,10 @@ import { Card,CardBody,
 import './Profile.css'
 
 
-const Profile = () => {
+
+
+
+   const Profile = () => {
 
     const [data, setData] = useState({});
     const [username, setUsername] = useState("");
@@ -148,10 +152,11 @@ if(profiletoJson){
       <Stack divider={<StackDivider />} spacing='' key={i}>
         <Box>
         <Text pt='2' fontSize='sm' color='white'>
-           <a href={repo.html_url} target="_blank">{repo.name}</a>
+          <Link to={`/repo/${i}`}>{repo.name}</Link>
         </Text>
       </Box>
       </Stack>      
+    
       
     ))}
     
@@ -199,6 +204,7 @@ if(profiletoJson){
     }
 
   }
+  
 
 };
 
