@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 
   },
   {
-    path:"error",
+    path:"https://github-repo-4pfu3oj1v-johns-projects-31a3c5c2.vercel.app/error",
     element: <ErroBound />
 
   }
