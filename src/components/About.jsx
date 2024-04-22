@@ -10,8 +10,8 @@ const About = () => {
                 <div className='col-2'>
                     <h2>About</h2>
                     <span className='line'></span>
-                    <p>This is my altschool second semester Examination project, As altschool Engineering student, specifically At the frontend, We always go beyong our Boundries to get things Done!</p>
-                    <p>I am John, a frontend student at altschool africa</p>
+                    <p>This is my altschool second semester Examination project, As altschool Engineering student, specifically At the frontend, We always go boundaries our Boundries to get things Done!</p>
+                    <p>I am John, a Front-end Engineering student at altschool africa</p>
                     <a className='button' href='https://altschoolafrica.com/' target='_blank'>Explore Altschool</a>
                 </div>
             </div>
