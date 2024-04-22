@@ -10,7 +10,7 @@ const Footer = () => {
                     <p>2024  All rights reserved</p>
                     
                     <button><a href='/test'>Test 404</a> </button>
-                    <button><a href='/test'>Error Boundry</a> </button>
+                    <button><a href='/error'>Error Boundry</a> </button>
                     <span className='line'></span>
                 </div>
             </div>

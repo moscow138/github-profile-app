@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Repos />
       <About />
-      <Footer />        
+      <Footer />     
       </div>
    
     
