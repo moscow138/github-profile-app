@@ -2,8 +2,21 @@
     text-align: center;
     margin-bottom: 50%;
 }
-.viewrepo h2{
+.viewrepo .h2{
     color: red;
-    padding-top: 200px;
-    padding-bottom: 50px;
+    /* padding-top: 200px !important; */
+    /* padding-bottom: 50px !important; */
+
+}
+
+.list-item{
+    color: red;
+    line-height: 0px;
+    
+}
+.item{
+    font-size: small;
+    float: left;
+   list-style: none;
+   line-height: 0px;
 }
