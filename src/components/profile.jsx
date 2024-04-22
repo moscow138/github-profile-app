@@ -21,14 +21,14 @@ import './Profile.css'
     const [username, setUsername] = useState("");
     const [repositories, setRepositories] = useState([]);
     
-// 
+// set username to input value by calling this functionn
     const onChangeHandler = (e) => {
         setUsername(e.target.value)
     }
-    //
+    //preventing the default form from submitting
     const submitHandler = async (e) => {
       e.preventDefault();
-//
+//fectch data from Api
 const profile = await fetch(`https://api.github.com/users/${ username ? username : 'moscow138'}`);
 const profiletoJson = await profile.json();
 // console.log(profiletoJson)
@@ -81,11 +81,8 @@ if(profiletoJson){
     />
   )}
     
-
-
   <Stack Stack divider={<StackDivider />} spacing='1' >
     <CardBody>
-    
     
   <Stack direction='row' spacing={4}>
   <Button variant='solid' colorScheme='blue' size='xs'>Public Repos: {data.public_repos}</Button>
@@ -154,8 +151,7 @@ if(profiletoJson){
           <Link to={`/repo/${i}`}>{repo.name}</Link>
         </Text>
       </Box>
-      </Stack>      
-    
+      </Stack>     
       
     ))}
     
@@ -185,18 +181,19 @@ if(profiletoJson){
       </div>
       </div>    
   );
-
+//previous unction
   function prepage(){
     if(currentPage !== 1){
       setCurrentPage(currentPage - 1)
     }
 
   }
-
+//current page function...
   function changeCPage(id){
     setCurrentPage(id)
 
   }
+  //page pageunction...
   function nextPage(){
     if(currentPage != npages){
       setCurrentPage(currentPage + 1)
@@ -204,9 +201,7 @@ if(profiletoJson){
 
   }
   
-
 };
-
 
 
 export default Profile;
