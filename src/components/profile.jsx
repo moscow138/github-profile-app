@@ -12,13 +12,8 @@ import { Card,CardBody,
    Heading,
    CardFooter,
   
-
    } from '@chakra-ui/react'
 import './Profile.css'
-
-
-
-
 
    const Profile = () => {
 
