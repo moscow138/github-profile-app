@@ -59,7 +59,7 @@ if(profiletoJson){
         <div className='profile'>
         <Stack direction='row' spacing={4} pb='2'>
         <Input type="text" placeholder='Search other username' size='sm' value={username} onChange={onChangeHandler} htmlSize={18} width='auto' />
-        <Button type='submit' onClick={submitHandler} variant='solid' colorScheme='blackAlpha' size='sm'>Get default user</Button>
+        <Button type='submit' onClick={submitHandler} variant='solid' colorScheme='blackAlpha' size='sm'>Get default Repo</Button>
         </Stack>
         <div className="container">
       
